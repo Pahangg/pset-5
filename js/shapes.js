@@ -25,8 +25,28 @@ window.onload = function() {
  * Exercise 1.
  */
 
-const sayHello = function() {
-    // write your exercise 1 code here
+const sayHello = function () {
+  const drawing = document.getElementById("student-canvas-1").getContext("2d");
+
+  let message = prompt("Message:");
+
+  if (message !== null) {
+    while (message.length > 50) {
+      alert("Your message is too long. Keep it under 50 characters.");
+      message = window.prompt("Message: ");
+
+      if (message === null) {  // hits cancel
+        break;
+      }
+    }
+  }
+
+  drawing.clearRect(0, 0, 1024, 128);
+
+  if (message !== null) {
+    drawing.font = "48px sans-serif";
+    drawing.strokeText(message, 30, 70, 994);
+  }
 };
 
 /*
