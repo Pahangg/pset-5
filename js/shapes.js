@@ -20,6 +20,7 @@ window.onload = function() {
 
     document.getElementById("hello").onclick = sayHello;
     document.getElementById("rectangle").onclick = drawRectangle;
+    document.getElementById("Color").onclick = drawColoredRectangle;
 }
 
 /*
@@ -104,7 +105,26 @@ const drawRectangle = function() {
  */
 
 const drawColoredRectangle = function() {
-    // write your exercise 3 code here
+  const drawing2 = document.getElementById('student-canvas-3');
+const ctx = drawing2.getContext('2d');
+ctx.clearRect(0, 0, drawing2.width, drawing2.height);
+
+do {
+  var color = (prompt("Color: "))
+  if (color == null) {
+    break;
+  }
+  color = String(color)
+  var color_formatted = color.toUpperCase()
+  if (color_formatted != "GREEN" && color_formatted != "BLACK" && color_formatted != "BLUE" && color_formatted != "ORANGE" && color_formatted != "PURPLE" && color_formatted != "RED" && color_formatted != "YELLOW") {
+    alert(color + " is not a supported color.")
+  }
+} while (color_formatted != "GREEN" && color_formatted != "BLACK" && color_formatted != "BLUE" && color_formatted != "ORANGE" && color_formatted != "PURPLE" && color_formatted != "RED" && color_formatted != "YELLOW")
+
+if (color != null) {
+  ctx.fillStyle = color_formatted;
+  ctx.fillRect(10, 10, 100, 50);
+}
 };
 
 /*
